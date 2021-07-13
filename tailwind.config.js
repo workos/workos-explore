@@ -8,6 +8,5 @@ module.exports = {
       },
     },
   },
-  purge: ['./pages/**/*.js', './components/**/*.js'],
   plugins: [require('@tailwindcss/ui'), require('@tailwindcss/forms')],
 }
