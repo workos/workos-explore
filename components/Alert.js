@@ -3,13 +3,13 @@ import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/solid'
 
 export default class Alert extends React.Component {
   render() {
-    const icon = this.props.sentMagicLink ? (
+    const icon = this.props.success ? (
       <CheckCircleIcon className="h-5 w-5 text-green-400" />
     ) : (
       <XCircleIcon className="h-5 w-5 text-red-400" />
     )
 
-    const color = this.props.sentMagicLink ? 'green' : 'red'
+    const color = this.props.success ? 'green' : 'red'
 
     return (
       <div className={this.props.message ? 'block' : 'hidden'}>
