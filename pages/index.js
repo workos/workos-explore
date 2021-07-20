@@ -1,60 +1,34 @@
-import React from 'react'
 import Head from 'next/head'
-import SignIn from '../components/SignIn'
+import Link from 'next/link'
+import paths from '../lib/paths'
 
 export default class extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      sentMagicLink: false,
-      message: null,
-    }
-  }
-
-  async onSubmit(e) {
-    e.preventDefault()
-
-    try {
-      const email = e.target.email.value
-      const res = await fetch('/api/magic-link', {
-        method: 'POST',
-        body: JSON.stringify({ email }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-
-      const data = await res.json()
-
-      if (!res.ok) {
-        throw new Error(data.message)
-      }
-
-      this.setState({
-        sentMagicLink: true,
-        message: 'We just sent a magic link to your email.',
-      })
-    } catch (e) {
-      this.setState({
-        sentMagicLink: false,
-        message: e.message,
-      })
-    }
-  }
-
   render() {
     return (
       <main>
         <Head>
-          <title>Magic Link - WorkOS Demo</title>
+          <title>WorkOS | Demo</title>
+          <link href="/favicon.png" rel="shortcut icon" />
         </Head>
 
-        <SignIn
-          onSubmit={this.onSubmit.bind(this)}
-          sentMagicLink={this.state.sentMagicLink}
-          message={this.state.message}
-        />
+        <div className="bg-white">
+          <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <p className="text-center text-base font-semibold uppercase text-gray-600 tracking-wider">
+              Choose Your Own Adventure
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
+              {paths.map(({ params }) => (
+                <Link key={params.name} href={`/${params.slug}`}>
+                  <a
+                    className={`col-span-1 flex justify-center py-8 px-8 bg-gray-50 transition text-gray-400 hover:text-${params.color}-200 hover:bg-${params.color}-500`}
+                  >
+                    <div className="max-h-12" dangerouslySetInnerHTML={{ __html: params.logo }} />
+                  </a>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </main>
     )
   }

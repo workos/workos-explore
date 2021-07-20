@@ -6,7 +6,6 @@ export default class extends Document {
     return (
       <Html>
         <Head>
-          <link href="/favicon.png" rel="shortcut icon" />
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         </Head>
         <Main />
