@@ -1,19 +1,13 @@
-# nextjs-magic-link-example
+# demo.workos.com
 
-An example application demonstrating how Magic Link works with WorkOS and Next.js.
-
-## Preview
-
-> [See live example](https://nextjs-magic-link-example.vercel.app)
-
-[![Preview](https://user-images.githubusercontent.com/398893/125538276-ec6a4574-a9ce-42a1-aee0-a2c85ebcf85a.png)](https://nextjs-magic-link-example.vercel.app)
+An example application demonstrating how Magic Link, SSO, and Admin Portal works with WorkOS.
 
 ## Clone and Install
 
 Clone this repo and install dependencies:
 
 ```sh
-git clone https://github.com/workos-inc/nextjs-magic-link-example.git && cd nextjs-magic-link-example && npm install
+git clone https://github.com/workos-inc/demo.workos.com.git && cd demo.workos.com && npm install
 ```
 
 ## Configure your environment
@@ -33,4 +27,4 @@ WORKOS_CLIENT_ID=$YOUR_CLIENT_ID
 npm run dev
 ```
 
-For more information, see the [WorkOS Magic Link documentation](https://workos.com/docs/reference/magic-link).
+For more information, see the [WorkOS documentation](https://workos.com/docs).
