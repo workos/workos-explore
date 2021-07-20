@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import Link from 'next/link'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import {
   BadgeCheckIcon,
@@ -14,11 +15,6 @@ import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline'
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
   { name: 'Domains', href: '#', current: false },
-]
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
 ]
 const projects = [
   {
@@ -42,7 +38,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Example(props) {
+  const userNavigation = [
+    { name: 'Your Profile', href: '#' },
+    { name: 'Settings', href: '#' },
+    { name: 'Logout', href: `/${props.demo.slug}` },
+  ]
+
   return (
     <>
       <div className="fixed top-0 left-0 w-1/2 h-full bg-white" aria-hidden="true" />
@@ -132,15 +134,16 @@ export default function Example() {
                                 {userNavigation.map((item) => (
                                   <Menu.Item key={item.name}>
                                     {({ active }) => (
-                                      <a
-                                        href={item.href}
-                                        className={classNames(
-                                          active ? 'bg-gray-100' : '',
-                                          'block px-4 py-2 text-sm text-gray-700',
-                                        )}
-                                      >
-                                        {item.name}
-                                      </a>
+                                      <Link href={item.href}>
+                                        <a
+                                          className={classNames(
+                                            active ? 'bg-gray-100' : '',
+                                            'block px-4 py-2 text-sm text-gray-700',
+                                          )}
+                                        >
+                                          {item.name}
+                                        </a>
+                                      </Link>
                                     )}
                                   </Menu.Item>
                                 ))}
@@ -175,13 +178,11 @@ export default function Example() {
                 <div className="pt-4 pb-3 border-t border-indigo-800">
                   <div className="px-2 space-y-1">
                     {userNavigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-indigo-100 hover:bg-indigo-600"
-                      >
-                        {item.name}
-                      </a>
+                      <Link key={item.name} href={item.href}>
+                        <a className="block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-indigo-100 hover:bg-indigo-600">
+                          {item.name}
+                        </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

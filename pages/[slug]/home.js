@@ -14,9 +14,9 @@ export async function getStaticProps({ params }) {
 
 export default class extends React.Component {
   renderHome() {
-    const { name } = this.props.demo
-    const Home = dynamic(() => import(`../../components/Home/${name}`))
-    return <Home />
+    const { demo } = this.props
+    const Home = dynamic(() => import(`../../components/Home/${demo.name}`))
+    return <Home demo={demo} />
   }
 
   render() {
