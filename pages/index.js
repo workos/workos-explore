@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import paths from '../lib/paths'
+import paths from '../lib/demos'
 
 export default class extends React.Component {
   render() {
