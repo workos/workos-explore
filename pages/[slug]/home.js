@@ -16,7 +16,12 @@ export default class extends React.Component {
   renderHome() {
     const { demo } = this.props
     const Home = dynamic(() => import(`../../components/Home/${demo.name}`))
-    return <Home demo={demo} />
+    const Layout = dynamic(() => import(`../../components/Layout/${demo.name}`))
+    return (
+      <Layout demo={demo}>
+        <Home />
+      </Layout>
+    )
   }
 
   render() {
