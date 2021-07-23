@@ -1,7 +1,9 @@
 import WorkOS from '@workos-inc/node'
+import baseURL from '../../lib/baseURL'
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY)
 const clientID = process.env.WORKOS_CLIENT_ID
+
 
 export default async (req, res) => {
   try {
@@ -10,7 +12,7 @@ export default async (req, res) => {
       state,
       domain,
       clientID,
-      redirectURI: 'http://localhost:3000/api/callback',
+      redirectURI: `${baseURL}/api/callback`,
     })
 
     res.status(200).json({ authorizationURL })

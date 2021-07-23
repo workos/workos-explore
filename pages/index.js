@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import paths from '../lib/demos'
 
 export default class extends React.Component {
@@ -44,7 +43,7 @@ export default class extends React.Component {
       <div className="bg-white">
         <div className="max-w-7xl mx-auto pt-12 px-4 sm:px-6 lg:pt-16 lg:px-8">
           {sections.map((section) => (
-            <div className="mb-20">
+            <div key={section.title} className="mb-20">
               <p className="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-700 sm:text-4xl">
                 {section.title}
               </p>

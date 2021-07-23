@@ -1,4 +1,5 @@
 import WorkOS from '@workos-inc/node'
+import baseURL from '../../lib/baseURL'
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY)
 
@@ -16,7 +17,7 @@ export default async (req, res) => {
     const { link } = await workos.portal.generateLink({
       intent,
       organization: organization.id,
-      returnUrl: `http://localhost:3000/${state}/settings`,
+      returnUrl: `${baseURL}/${state}/settings`,
     })
 
     res.status(200).json({ link })
