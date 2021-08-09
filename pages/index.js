@@ -48,7 +48,7 @@ export default class extends React.Component {
                 {section.title}
               </p>
               <p className="mt-3 text-lg text-gray-500">{section.description}</p>
-              <div className="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
                 {paths.map(({ params }) => (
                   <a
                     target="_blank"
