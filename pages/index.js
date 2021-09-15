@@ -150,7 +150,7 @@ export default class extends React.Component {
       <main>
         <Head>
           <title>Explore | WorkOS</title>
-          <link href="/favicon.png" rel="shortcut icon" />
+          <link href="https://workos.imgix.net/brand/v2/favicon@32x32.png" rel="shortcut icon" />
         </Head>
 
         {this.renderHero()}
