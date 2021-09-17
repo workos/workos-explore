@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link'
 import { LockClosedIcon } from '@heroicons/react/solid'
 import Alert from './Alert'
