@@ -6,11 +6,11 @@ const clientID = process.env.WORKOS_CLIENT_ID
 
 export default async (req, res) => {
   try {
-    const { domain, state } = req.body
+    const { state } = req.body
     const authorizationURL = workos.sso.getAuthorizationURL({
       state,
-      domain,
       clientID,
+      organization: 'org_01FCE7B1TRQ1QYKW0YK5NJERVF',
       redirectURI: `${baseURL}/api/callback`,
     })
 

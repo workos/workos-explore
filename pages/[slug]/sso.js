@@ -26,12 +26,11 @@ export default class extends React.Component {
     e.preventDefault()
 
     try {
-      const domain = e.target.domain.value
       const state = this.props.demo.slug
 
       const res = await fetch('/api/sso', {
         method: 'POST',
-        body: JSON.stringify({ domain, state }),
+        body: JSON.stringify({ state }),
         headers: {
           'Content-Type': 'application/json',
         },
