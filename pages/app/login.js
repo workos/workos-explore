@@ -1,16 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import paths, { getDemoProps } from '../../lib/demos'
-import LoginWithSSO from '../../components/LoginWithSSO'
-
-export async function getStaticPaths() {
-  return { paths, fallback: false }
-}
-
-export async function getStaticProps({ params }) {
-  const demo = getDemoProps(params)
-  return { props: { demo } }
-}
+import LoginWithEmail from '../../components/LoginWithEmail'
 
 export default class extends React.Component {
   constructor(props) {
@@ -26,11 +16,12 @@ export default class extends React.Component {
     e.preventDefault()
 
     try {
-      const state = this.props.demo.slug
+      const email = e.target.email.value
+      const state = 'app'
 
-      const res = await fetch('/api/sso', {
+      const res = await fetch('/api/magic-link', {
         method: 'POST',
-        body: JSON.stringify({ state }),
+        body: JSON.stringify({ email, state }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -42,7 +33,10 @@ export default class extends React.Component {
         throw new Error(data.message)
       }
 
-      window.location.href = data.authorizationURL
+      this.setState({
+        success: true,
+        message: 'We just sent a magic link to your email.',
+      })
     } catch (e) {
       this.setState({
         success: false,
@@ -52,20 +46,17 @@ export default class extends React.Component {
   }
 
   render() {
-    const { demo } = this.props
-
     return (
       <main>
         <Head>
-          <title>{demo.name} | Log in with SSO</title>
-          <link href={`/favicon/${demo.name}.png`} rel="shortcut icon" />
+          <title>HireOS | Log in with Email</title>
+          <link href="/favicon.png" rel="shortcut icon" />
         </Head>
 
-        <LoginWithSSO
+        <LoginWithEmail
           onSubmit={this.onSubmit.bind(this)}
           success={this.state.success}
           message={this.state.message}
-          demo={demo}
         />
       </main>
     )

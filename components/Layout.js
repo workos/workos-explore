@@ -21,11 +21,11 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function LayoutHireOS(props) {
+export default function Layout(props) {
   const userNavigation = [
-    { name: 'Admin Settings', href: `/${props.demo.slug}/settings` },
+    { name: 'Admin Settings', href: '/app/settings' },
     { name: 'Your Profile', href: '#' },
-    { name: 'Logout', href: `/${props.demo.slug}` },
+    { name: 'Logout', href: '/app/login' },
   ]
 
   return (
@@ -37,9 +37,9 @@ export default function LayoutHireOS(props) {
               <>
                 <div className="flex px-2 lg:px-0">
                   <div className="flex-shrink-0 flex items-center">
-                    <Link href={`/${props.demo.slug}/home`}>
+                    <Link href="/app">
                       <a>
-                        <img className="h-8 w-auto" src="/colors/HireOS.svg" alt="HireOS Logo" />
+                        <img className="h-8 w-auto" src="/HireOS.svg" alt="HireOS Logo" />
                       </a>
                     </Link>
                   </div>
@@ -120,11 +120,7 @@ export default function LayoutHireOS(props) {
                           <div className="pt-3 pb-2">
                             <div className="flex items-center justify-between px-4">
                               <div>
-                                <img
-                                  className="h-8 w-auto"
-                                  src="/colors/HireOS.svg"
-                                  alt="HireOS Logo"
-                                />
+                                <img className="h-8 w-auto" src="/HireOS.svg" alt="HireOS Logo" />
                               </div>
                               <div className="-mr-2">
                                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">

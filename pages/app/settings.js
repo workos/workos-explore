@@ -1,17 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
 import Settings from '../../components/Settings'
-import paths, { getDemoProps } from '../../lib/demos'
-
-export async function getStaticPaths() {
-  return { paths, fallback: false }
-}
-
-export async function getStaticProps({ params }) {
-  const demo = getDemoProps(params)
-  return { props: { demo } }
-}
+import Layout from '../../components/Layout'
 
 export default class extends React.Component {
   constructor(props) {
@@ -27,7 +17,7 @@ export default class extends React.Component {
     e.preventDefault()
 
     try {
-      const state = this.props.demo.slug
+      const state = 'app'
 
       const res = await fetch('/api/admin-portal', {
         method: 'POST',
@@ -53,22 +43,18 @@ export default class extends React.Component {
   }
 
   render() {
-    const { demo } = this.props
-    const Layout = dynamic(() => import(`../../components/Layout/${demo.name}`))
-
     return (
       <main>
         <Head>
-          <title>{demo.name} | Admin Settings</title>
-          <link href={`/favicon/${demo.name}.png`} rel="shortcut icon" />
+          <title>HireOS | Admin Settings</title>
+          <link href="/favicon.png" rel="shortcut icon" />
         </Head>
 
-        <Layout demo={demo}>
+        <Layout>
           <Settings
             onSubmit={this.onSubmit.bind(this)}
             success={this.state.success}
             message={this.state.message}
-            demo={demo}
           />
         </Layout>
       </main>

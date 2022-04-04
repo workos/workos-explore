@@ -21,7 +21,7 @@ export default function Settings(props) {
                 href={item.href}
                 className={classNames(
                   item.current
-                    ? `bg-gray-50 text-${props.demo.color}-600 hover:bg-white`
+                    ? 'bg-gray-50 text-blue-600 hover:bg-white'
                     : 'text-gray-900 hover:text-gray-900 hover:bg-gray-50',
                   'group rounded-md px-3 py-2 flex items-center text-sm font-medium',
                 )}
@@ -29,9 +29,7 @@ export default function Settings(props) {
               >
                 <item.icon
                   className={classNames(
-                    item.current
-                      ? `text-${props.demo.color}-500`
-                      : 'text-gray-400 group-hover:text-gray-500',
+                    item.current ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500',
                     'flex-shrink-0 -ml-1 mr-3 h-6 w-6',
                   )}
                   aria-hidden="true"
@@ -62,7 +60,7 @@ export default function Settings(props) {
                 <div className="px-4 py-3 bg-gray-50 sm:px-6">
                   <button
                     type="submit"
-                    className={`py-2 px-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-${props.demo.color}-600 hover:bg-${props.demo.color}-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${props.demo.color}-500`}
+                    className="py-2 px-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     Configure
                   </button>
@@ -90,7 +88,7 @@ export default function Settings(props) {
                 <div className="px-4 py-3 bg-gray-50 sm:px-6">
                   <button
                     type="submit"
-                    className={`py-2 px-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-${props.demo.color}-600 hover:bg-${props.demo.color}-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${props.demo.color}-500`}
+                    className="py-2 px-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     Configure
                   </button>

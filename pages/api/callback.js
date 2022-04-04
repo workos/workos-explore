@@ -11,7 +11,7 @@ export default async (req, res) => {
       clientID,
     })
 
-    res.redirect(302, `/${state}/home`)
+    res.redirect(302, `/${state}`)
   } catch (e) {
     res.status(400).json(req.query)
   }
