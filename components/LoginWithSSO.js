@@ -20,16 +20,16 @@ export default class LoginWithSSO extends React.Component {
 
             <form onSubmit={this.props.onSubmit.bind(this)} className="space-y-6">
               <div>
-                <label htmlFor="domain" className="block text-sm font-medium text-gray-700">
-                  Domain
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  Email Address
                 </label>
                 <div className="mt-1">
                   <input
-                    id="domain"
-                    name="domain"
+                    id="email"
+                    name="email"
                     type="text"
-                    placeholder="Enter domain"
-                    defaultValue="foo-corp.com"
+                    placeholder="Enter email address"
+                    defaultValue="sheldon@foo-corp.com"
                     required
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   />
@@ -50,7 +50,7 @@ export default class LoginWithSSO extends React.Component {
           <p className="mt-4 text-center text-sm text-gray-600">
             Or{' '}
             <Link href="/app/login">
-              <a className="font-medium text-blue-600 hover:text-blue-500">continue with email</a>
+              <a className="font-medium text-blue-600 hover:text-blue-500">continue with Magic Link</a>
             </Link>
           </p>
         </div>
