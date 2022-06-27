@@ -18,13 +18,24 @@ export default class extends React.Component {
     try {
       const state = 'app'
 
-      const res = await fetch('/api/sso', {
-        method: 'POST',
-        body: JSON.stringify({ state }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
+      if (e.target.value == "google") {
+        console.log(e.target.value)
+        var res = await fetch('/api/oauth', {
+          method: 'POST',
+          body: JSON.stringify({ state }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }) 
+      } else {
+        var res = await fetch('/api/sso', {
+          method: 'POST',
+          body: JSON.stringify({ state }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+      }
 
       const data = await res.json()
 
@@ -54,6 +65,7 @@ export default class extends React.Component {
           success={this.state.success}
           message={this.state.message}
         />
+        
       </main>
     )
   }
