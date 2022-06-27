@@ -18,6 +18,10 @@ export default class extends React.Component {
     try {
       const state = 'app'
 
+      if (/@test.com\s*$/.test(e.target.email.value)) {
+        alert("this would go to a login/password page")
+     } 
+
       if (e.target.value == "google") {
         console.log(e.target.value)
         var res = await fetch('/api/oauth', {
