@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Menu, Popover, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/solid'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import * as Avatar from '@radix-ui/react-avatar';
 
 const user = {
   name: 'Whitney Francis',
@@ -194,7 +195,9 @@ export default function Layout(props) {
                         <div>
                           <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             <span className="sr-only">Open user menu</span>
-                            <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                            <Avatar.Root>
+                              <Avatar.Image className="h-8 w-8 rounded-full" alt="" src={user.imageUrl} />
+                              </Avatar.Root> 
                           </Menu.Button>
                         </div>
                         <Transition
