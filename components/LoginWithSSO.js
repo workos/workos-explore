@@ -10,7 +10,7 @@ export default class LoginWithSSO extends React.Component {
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img className="mx-auto h-20 w-auto" src="/favicon.png" alt="HireOS" />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Log in with SSO to HireOS
+            Sign in with SSO to HireOS
           </h2>
         </div>
 

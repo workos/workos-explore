@@ -17,8 +17,7 @@ git clone https://github.com/workos-inc/workos-explore.git && cd workos-explore 
 3. Replace the `$YOUR_API_KEY` value.
 
 ```sh
-WORKOS_API_KEY=$YOUR_API_KEY
-WORKOS_CLIENT_ID=$YOUR_CLIENT_ID
+
 ```
 
 ## Run the server locally

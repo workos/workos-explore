@@ -45,7 +45,7 @@ export default class extends React.Component {
     return (
       <main>
         <Head>
-          <title>HireOS | Log in with SSO</title>
+          <title>HireOS | Sign in with SSO</title>
           <link href="/favicon.png" rel="shortcut icon" />
         </Head>
 
