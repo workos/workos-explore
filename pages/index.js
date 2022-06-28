@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 //import * as Label from '@radix-ui/react-label';
-import { HoverCard } from '@radix-ui/react-hover-card';
+//import { HoverCard } from '@radix-ui/react-hover-card';
 
 export default class extends React.Component {
   renderHero() {

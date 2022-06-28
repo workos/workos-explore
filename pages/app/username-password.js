@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import LoginWithSSO from '../../components/LoginWithSSO'
+import LoginWithSSO from '../../components/LoginWithUsernamePassword'
+import LoginWithUsernamePassword from '../../components/LoginWithUsernamePassword'
 
 export default class extends React.Component {
   constructor(props) {
@@ -19,36 +20,10 @@ export default class extends React.Component {
       const state = 'app'
 
       if (/@test.com\s*$/.test(e.target.email.value)) {
-        var res = await fetch('/api/username-password', {
-          method: 'POST',
-          body: JSON.stringify({ state }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        //alert("this would go to a login/password page")
+        alert("this would go to a login/password page")
         // send to username/password page
         
      } 
-
-      if (e.target.value == "google") {
-        console.log(e.target.value)
-        var res = await fetch('/api/oauth', {
-          method: 'POST',
-          body: JSON.stringify({ state }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }) 
-      } else {
-        var res = await fetch('/api/sso', {
-          method: 'POST',
-          body: JSON.stringify({ state }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-      }
 
       const data = await res.json()
 
@@ -73,7 +48,7 @@ export default class extends React.Component {
           <link href="/favicon.png" rel="shortcut icon" />
         </Head>
 
-        <LoginWithSSO
+        <LoginWithUsernamePassword
           onSubmit={this.onSubmit.bind(this)}
           success={this.state.success}
           message={this.state.message}
