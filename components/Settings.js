@@ -1,4 +1,5 @@
 import { CogIcon, UserCircleIcon } from '@heroicons/react/outline'
+import * as Tabs from '@radix-ui/react-tabs';
 
 const subNavigation = [
   { name: 'Admin Settings', href: '#', icon: CogIcon, current: true },
@@ -40,63 +41,49 @@ export default function Settings(props) {
           </nav>
         </aside>
 
-        <div className="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-          <section aria-labelledby="payment-details-heading">
-            <form onSubmit={props.onSubmit.bind(this, 'sso')}>
-              <div className="shadow sm:rounded-md sm:overflow-hidden">
-                <div className="bg-white py-6 px-4 sm:p-6">
-                  <div>
-                    <h2
-                      id="payment-details-heading"
-                      className="text-lg leading-6 font-medium text-gray-900"
-                    >
-                      Single Sign-On
-                    </h2>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Allow users to authentication using an Identity Provider.
-                    </p>
-                  </div>
+        <Tabs.Root defaultValue="sso" orientation="vertical" className="sm:px-6 lg:px-0 lg:col-span-9 shadow sm:rounded-md sm:overflow-hidden">
+          <Tabs.List aria-label="configure settings" className="flex justify-around text-lg leading-6 font-medium text-gray-900">
+            <Tabs.Trigger value="sso" className="hover:bg-white focus:bg-white h-full w-full px-4 py-3 bg-gray-50">Configure Single Sign-On</Tabs.Trigger>
+            <Tabs.Trigger value="directory-sync" className="hover:bg-white focus:bg-white h-full w-full px-4 py-3 bg-gray-50"><h2>Configure Directory Sync</h2></Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="sso">
+          <form onSubmit={props.onSubmit.bind(this, 'sso')}>
+              <div className="bg-white py-6 px-4 sm:p-6">
+                <div>
+                  <p className="mt-1 text-sm text-gray-500">
+                    Allow users to authentication using an Identity Provider.
+                  </p>
                 </div>
-                <div className="px-4 py-3 bg-gray-50 sm:px-6">
-                  <button
-                    type="submit"
-                    className="py-2 px-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                  >
-                    Configure
-                  </button>
-                </div>
+                <button
+                  type="submit"
+                  className="py-2 px-4 my-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Configure
+                </button>
               </div>
+          </form>
+          </Tabs.Content>
+          <Tabs.Content value="directory-sync">
+          <form onSubmit={props.onSubmit.bind(this, 'dsync')}>
+              <div className="bg-white py-6 px-4 sm:p-6">
+                <div>
+                  <p className="mt-1 text-sm text-gray-500">
+                    Provision and de-provision accounts with your directory provider.
+                  </p>
+                </div>
+                <button
+                  type="submit"
+                  className="py-2 px-4 my-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Configure
+                </button>
+              </div>
+          
             </form>
-          </section>
+          </Tabs.Content>
+        </Tabs.Root>
 
-          <section aria-labelledby="payment-details-heading">
-            <form onSubmit={props.onSubmit.bind(this, 'dsync')}>
-              <div className="shadow sm:rounded-md sm:overflow-hidden">
-                <div className="bg-white py-6 px-4 sm:p-6">
-                  <div>
-                    <h2
-                      id="payment-details-heading"
-                      className="text-lg leading-6 font-medium text-gray-900"
-                    >
-                      Directory Sync
-                    </h2>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Provision and de-provision accounts with your directory provider.
-                    </p>
-                  </div>
-                </div>
-                <div className="px-4 py-3 bg-gray-50 sm:px-6">
-                  <button
-                    type="submit"
-                    className="py-2 px-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                  >
-                    Configure
-                  </button>
-                </div>
-              </div>
-            </form>
-          </section>
-        </div>
+       
       </div>
     </main>
   )
