@@ -20,13 +20,17 @@ const navigation = [
   { name: 'Company', href: '#' },
 ]
 
+const subNavigation = [
+  { name: 'Configuration', href: '#' },
+  { name: 'Notifications', href: '#' },
+]
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Layout(props) {
   const userNavigation = [
-    { name: 'Admin Settings', href: '/app/settings' },
     { name: 'Your Profile', href: '#' },
     { name: 'Logout', href: '/app/login' },
   ]
@@ -93,14 +97,29 @@ export default function Layout(props) {
                 <DropdownMenu.Content 
                   className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <DropdownMenu.Root>
+                    {userNavigation.map((item) => (
+                      <DropdownMenu.Item className='block px-4 py-2 text-sm text-gray-700'>
+                        <Link key={item.name} href={item.href}>
+                          <a>
+                            {item.name}
+                          </a>
+                        </Link>
+                      </DropdownMenu.Item>
+                    ))}
                     <DropdownMenu.TriggerItem className='block px-4 py-2 text-sm text-gray-700'>Settings</DropdownMenu.TriggerItem>
-                    <DropdownMenu.Content>
-                      <DropdownMenu.Item className='block px-4 py-2 text-sm text-gray-700'>Admin Settings</DropdownMenu.Item>
-                      <DropdownMenu.Item className='block px-4 py-2 text-sm text-gray-700'>User Settings</DropdownMenu.Item>
+                    <DropdownMenu.Content className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    {subNavigation.map((item) => (
+                      <DropdownMenu.Item className='block px-4 py-2 text-sm text-gray-700'>
+                        <Link key={item.name} href={item.href} className='block px-4 py-2 text-sm text-gray-700'>
+                          <a className='block px-4 py-2 text-sm text-gray-700'>
+                            {item.name}
+                          </a>
+                        </Link>
+                      </DropdownMenu.Item>
+                    ))}
                       <DropdownMenu.Arrow />
                     </DropdownMenu.Content>
                   </DropdownMenu.Root>
-                  <DropdownMenu.Item className='block px-4 py-2 text-sm text-gray-700'>Logout</DropdownMenu.Item>
                 </DropdownMenu.Content>
               </DropdownMenu.Root>
             </NavigationMenu.Sub>
