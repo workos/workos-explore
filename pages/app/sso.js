@@ -18,28 +18,15 @@ export default class extends React.Component {
     try {
       const state = 'app'
 
-      if (/@test.com\s*$/.test(e.target.email.value)) {
-        alert("this would go to a login/password page")
-     } 
+      let protocol = e.target.value === "google" ? "oauth" : "sso";
 
-      if (e.target.value == "google") {
-        console.log(e.target.value)
-        var res = await fetch('/api/oauth', {
-          method: 'POST',
-          body: JSON.stringify({ state }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }) 
-      } else {
-        var res = await fetch('/api/sso', {
-          method: 'POST',
-          body: JSON.stringify({ state }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-      }
+      var res = await fetch(`/api/${protocol}`, {
+        method: 'POST',
+        body: JSON.stringify({ state }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }) 
 
       const data = await res.json()
 
