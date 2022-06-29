@@ -14,16 +14,24 @@ const user = {
     'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Dashboard', href: '#' },
-  { name: 'Jobs', href: '#' },
-  { name: 'Applicants', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Dashboard', href: '#dashboard', sub: "menu1" },
+  { name: 'Jobs', href: '#jobs', sub: "menu2" },
+  { name: 'Applicants', href: '#applicants' },
+  { name: 'Company', href: '#company' },
 ]
 
 const subNavigation = [
   { name: 'Configuration', href: '#' },
   { name: 'Notifications', href: '#' },
 ]
+
+const navigationItems = navigation.map((navItem) => {
+  return <NavigationMenu.Link
+    className="px-3 py-2 text-gray-900 text-sm font-medium"
+    href={navItem.href}>
+    {navItem.name}
+  </NavigationMenu.Link>
+})
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -42,22 +50,17 @@ export default function Layout(props) {
           <NavigationMenu.Root className="flex justify-between h-16">
             {/*Logo */}
             <NavigationMenu.Sub className="flex px-2 lg:px-0">
-            <NavigationMenu.Item className="flex-shrink-0 flex items-center">
-              <NavigationMenu.Link href="/app">
-                <a>
-                  <img className="h-8 w-auto" src="/HireOS.svg" alt="HireOS Logo" />
-                </a>
-              </NavigationMenu.Link>
-            </NavigationMenu.Item>
+              <NavigationMenu.Item className="flex-shrink-0 flex items-center">
+                <NavigationMenu.Link href="/app">
+                  <a>
+                    <img className="h-8 w-auto" src="/HireOS.svg" alt="HireOS Logo" />
+                  </a>
+                </NavigationMenu.Link>
+              </NavigationMenu.Item>
             </NavigationMenu.Sub>
             {/* Link Menu */}
             <NavigationMenu.Sub className="hidden lg:ml-6 lg:flex lg:items-center lg:space-x-4">
-              {/*replace with practices here: https://www.radix-ui.com/docs/primitives/components/navigation-menu#sub */}
-              <NavigationMenu.Link 
-                className="px-3 py-2 text-gray-900 text-sm font-medium" 
-                href="https://github.com/radix-ui">
-                  Dashboard
-              </NavigationMenu.Link>
+              {navigationItems}
             </NavigationMenu.Sub>
             {/* Search Bar */}
             <NavigationMenu.Item className="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
@@ -80,21 +83,21 @@ export default function Layout(props) {
               </div>
             </NavigationMenu.Item>
             <NavigationMenu.Sub className="hidden lg:ml-4 lg:flex lg:items-center">
-            <button
-              type="button"
-              className="mx-3 flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              <span className="sr-only">View notifications</span>
-              <BellIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
+              <button
+                type="button"
+                className="mx-3 flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                <span className="sr-only">View notifications</span>
+                <BellIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
               {/* Profile dropdown */}
-              <DropdownMenu.Root> 
-                <DropdownMenu.Trigger className="bg-white rounded-full flex text-sm">  
+              <DropdownMenu.Root>
+                <DropdownMenu.Trigger className="bg-white rounded-full flex text-sm">
                   <Avatar.Root>
                     <Avatar.Image className="h-8 w-8 rounded-full" alt="" src={user.imageUrl} />
-                  </Avatar.Root> 
+                  </Avatar.Root>
                 </DropdownMenu.Trigger>
-                <DropdownMenu.Content 
+                <DropdownMenu.Content
                   className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <DropdownMenu.Root>
                     {userNavigation.map((item) => (
