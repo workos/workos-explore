@@ -16,13 +16,11 @@ export default class LoginWithSSO extends React.Component {
 
   handleEmailChange = (e) => {
     const domain = e.target.value.substring(e.target.value.lastIndexOf("@") + 1)
-    console.log(domain)
     if (domain != "foo-corp.com") {
       this.setState({ showPasswordInput: true })
     } else {
       this.setState({ showPasswordInput: false })
     }
-    console.log(this.state)
   }
 
   handlePasswordChange = (e) => {
