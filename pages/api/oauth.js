@@ -10,7 +10,7 @@ export default async (req, res) => {
     const authorizationURL = workos.sso.getAuthorizationURL({
       state,
       clientID,
-      provider: "GoogleOAuth",
+      provider: 'GoogleOAuth',
       redirectURI: `${baseURL}/api/callback`,
     })
 

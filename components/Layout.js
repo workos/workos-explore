@@ -1,11 +1,9 @@
-import { Fragment } from 'react'
 import Link from 'next/link'
-import { Popover, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/solid'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import * as Avatar from '@radix-ui/react-avatar';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { BellIcon } from '@heroicons/react/outline'
+import * as Avatar from '@radix-ui/react-avatar'
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 
 const user = {
   name: 'Whitney Francis',
@@ -14,8 +12,8 @@ const user = {
     'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Dashboard', href: '#dashboard', sub: "menu1" },
-  { name: 'Jobs', href: '#jobs', sub: "menu2" },
+  { name: 'Dashboard', href: '#dashboard', sub: 'menu1' },
+  { name: 'Jobs', href: '#jobs', sub: 'menu2' },
   { name: 'Applicants', href: '#applicants' },
   { name: 'Company', href: '#company' },
 ]
@@ -26,16 +24,15 @@ const subNavigation = [
 ]
 
 const navigationItems = navigation.map((navItem) => {
-  return <NavigationMenu.Link
-    className="px-3 py-2 text-gray-900 text-sm font-medium"
-    href={navItem.href}>
-    {navItem.name}
-  </NavigationMenu.Link>
+  return (
+    <NavigationMenu.Link
+      className="px-3 py-2 text-gray-900 text-sm font-medium"
+      href={navItem.href}
+    >
+      {navItem.name}
+    </NavigationMenu.Link>
+  )
 })
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Layout(props) {
   const userNavigation = [
@@ -97,29 +94,30 @@ export default function Layout(props) {
                     <Avatar.Image className="h-8 w-8 rounded-full" alt="" src={user.imageUrl} />
                   </Avatar.Root>
                 </DropdownMenu.Trigger>
-                <DropdownMenu.Content
-                  className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <DropdownMenu.Content className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <DropdownMenu.Root>
                     {userNavigation.map((item) => (
-                      <DropdownMenu.Item className='block px-4 py-2 text-sm text-gray-700'>
+                      <DropdownMenu.Item className="block px-4 py-2 text-sm text-gray-700">
                         <Link key={item.name} href={item.href}>
-                          <a>
-                            {item.name}
-                          </a>
+                          <a>{item.name}</a>
                         </Link>
                       </DropdownMenu.Item>
                     ))}
-                    <DropdownMenu.TriggerItem className='block px-4 py-2 text-sm text-gray-700'>Settings</DropdownMenu.TriggerItem>
+                    <DropdownMenu.TriggerItem className="block px-4 py-2 text-sm text-gray-700">
+                      Settings
+                    </DropdownMenu.TriggerItem>
                     <DropdownMenu.Content className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    {subNavigation.map((item) => (
-                      <DropdownMenu.Item className='block px-4 py-2 text-sm text-gray-700'>
-                        <Link key={item.name} href={item.href} className='block px-4 py-2 text-sm text-gray-700'>
-                          <a className='block px-4 py-2 text-sm text-gray-700'>
-                            {item.name}
-                          </a>
-                        </Link>
-                      </DropdownMenu.Item>
-                    ))}
+                      {subNavigation.map((item) => (
+                        <DropdownMenu.Item className="block px-4 py-2 text-sm text-gray-700">
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            className="block px-4 py-2 text-sm text-gray-700"
+                          >
+                            <a className="block px-4 py-2 text-sm text-gray-700">{item.name}</a>
+                          </Link>
+                        </DropdownMenu.Item>
+                      ))}
                       <DropdownMenu.Arrow />
                     </DropdownMenu.Content>
                   </DropdownMenu.Root>

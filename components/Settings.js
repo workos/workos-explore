@@ -1,5 +1,5 @@
 import { CogIcon, UserCircleIcon } from '@heroicons/react/outline'
-import * as Tabs from '@radix-ui/react-tabs';
+import * as Tabs from '@radix-ui/react-tabs'
 
 const subNavigation = [
   { name: 'Admin Settings', href: '#', icon: CogIcon, current: true },
@@ -41,13 +41,30 @@ export default function Settings(props) {
           </nav>
         </aside>
 
-        <Tabs.Root defaultValue="sso" orientation="vertical" className="sm:px-6 lg:px-0 lg:col-span-9 shadow sm:rounded-md sm:overflow-hidden">
-          <Tabs.List aria-label="configure settings" className="flex justify-around text-lg leading-6 font-medium text-gray-900">
-            <Tabs.Trigger value="sso" className="hover:bg-white focus:bg-white h-full w-full px-4 py-3 bg-gray-50">Configure Single Sign-On</Tabs.Trigger>
-            <Tabs.Trigger value="directory-sync" className="hover:bg-white focus:bg-white h-full w-full px-4 py-3 bg-gray-50"><h2>Configure Directory Sync</h2></Tabs.Trigger>
+        <Tabs.Root
+          defaultValue="sso"
+          orientation="vertical"
+          className="sm:px-6 lg:px-0 lg:col-span-9 shadow sm:rounded-md sm:overflow-hidden"
+        >
+          <Tabs.List
+            aria-label="configure settings"
+            className="flex justify-around text-lg leading-6 font-medium text-gray-900"
+          >
+            <Tabs.Trigger
+              value="sso"
+              className="hover:bg-white focus:bg-white h-full w-full px-4 py-3 bg-gray-50"
+            >
+              Configure Single Sign-On
+            </Tabs.Trigger>
+            <Tabs.Trigger
+              value="directory-sync"
+              className="hover:bg-white focus:bg-white h-full w-full px-4 py-3 bg-gray-50"
+            >
+              <h2>Configure Directory Sync</h2>
+            </Tabs.Trigger>
           </Tabs.List>
           <Tabs.Content value="sso">
-          <form onSubmit={props.onSubmit.bind(this, 'sso')}>
+            <form onSubmit={props.onSubmit.bind(this, 'sso')}>
               <div className="bg-white py-6 px-4 sm:p-6">
                 <div>
                   <p className="mt-1 text-sm text-gray-500">
@@ -61,10 +78,10 @@ export default function Settings(props) {
                   Configure
                 </button>
               </div>
-          </form>
+            </form>
           </Tabs.Content>
           <Tabs.Content value="directory-sync">
-          <form onSubmit={props.onSubmit.bind(this, 'dsync')}>
+            <form onSubmit={props.onSubmit.bind(this, 'dsync')}>
               <div className="bg-white py-6 px-4 sm:p-6">
                 <div>
                   <p className="mt-1 text-sm text-gray-500">
@@ -78,12 +95,9 @@ export default function Settings(props) {
                   Configure
                 </button>
               </div>
-          
             </form>
           </Tabs.Content>
         </Tabs.Root>
-
-       
       </div>
     </main>
   )

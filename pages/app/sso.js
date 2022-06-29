@@ -18,7 +18,7 @@ export default class extends React.Component {
     try {
       const state = 'app'
 
-      let protocol = e.target.value === "google" ? "oauth" : "sso";
+      let protocol = e.target.value === 'google' ? 'oauth' : 'sso'
 
       var res = await fetch(`/api/${protocol}`, {
         method: 'POST',
@@ -26,7 +26,7 @@ export default class extends React.Component {
         headers: {
           'Content-Type': 'application/json',
         },
-      }) 
+      })
 
       const data = await res.json()
 
@@ -56,7 +56,6 @@ export default class extends React.Component {
           success={this.state.success}
           message={this.state.message}
         />
-        
       </main>
     )
   }
