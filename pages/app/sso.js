@@ -9,16 +9,17 @@ export default class extends React.Component {
     this.state = {
       success: null,
       message: null,
+      protocol: null,
     }
   }
 
   async onSubmit(e) {
     e.preventDefault()
 
+    let protocol = e.target.value === 'google' ? 'oauth' : e.target.magiclink ? 'magic-link' : 'sso'
+
     try {
       const state = 'app'
-
-      let protocol = e.target.value === 'google' ? 'oauth' : e.target.magiclink ? 'magic-link' : 'sso'
 
       let email = protocol === 'magic-link' ? e.target.magiclink.value : "" 
 
@@ -36,10 +37,12 @@ export default class extends React.Component {
         throw new Error(data.message)
       }
 
-     if(protocol == 'magic-link') this.setState({
+     if(protocol == 'magic-link')this.setState({
         success: true,
         message: 'We just sent a magic link to your email.',
+        protocol: protocol,
       })
+    
       else {
         window.location.href = data.authorizationURL
       }
@@ -47,6 +50,7 @@ export default class extends React.Component {
       this.setState({
         success: false,
         message: e.message,
+        protocol: protocol,
       })
     }
   }
@@ -63,6 +67,7 @@ export default class extends React.Component {
           onSubmit={this.onSubmit.bind(this)}
           success={this.state.success}
           message={this.state.message}
+          protocol={this.state.protocol}
         />
       </main>
     )
