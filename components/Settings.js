@@ -1,5 +1,6 @@
 import { CogIcon, UserCircleIcon } from '@heroicons/react/outline'
 import * as Tabs from '@radix-ui/react-tabs'
+import React, { useState } from 'react';
 
 const subNavigation = [
   { name: 'Admin Settings', href: '#', icon: CogIcon, current: true },
@@ -10,7 +11,10 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
+
 export default function Settings(props) {
+  const [status, setStatus] = useState('sso');
+
   return (
     <main className="max-w-7xl mx-auto pb-10 lg:py-12 lg:px-8">
       <div className="lg:grid lg:grid-cols-12 lg:gap-x-5">
@@ -48,18 +52,21 @@ export default function Settings(props) {
         >
           <Tabs.List
             aria-label="configure settings"
-            className="flex justify-around text-lg leading-6 font-medium text-gray-900"
+            className="flex justify-around text-lg leading-6 font-medium text-gray-900 bg-gray-50"
           >
             <Tabs.Trigger
               value="sso"
-              className="hover:bg-white focus:bg-white h-full w-full px-4 py-3 bg-gray-50"
+              className={status == 'sso' ? "bg-white hover:bg-white h-full w-full px-4 py-3" : "hover:bg-white h-full w-full px-4 py-3"}
+              onClick={() => setStatus('sso')}
             >
               Configure Single Sign-On
             </Tabs.Trigger>
             <Tabs.Trigger
               value="directory-sync"
-              className="hover:bg-white focus:bg-white h-full w-full px-4 py-3 bg-gray-50"
+              className={status == 'dsync' ? "bg-white hover:bg-white h-full w-full px-4 py-3" : "hover:bg-white h-full w-full px-4 py-3"}
+              onClick={() => setStatus('dsync')}
             >
+             
               <h2>Configure Directory Sync</h2>
             </Tabs.Trigger>
           </Tabs.List>
@@ -73,11 +80,11 @@ export default function Settings(props) {
                 </div>
                 <button
                   type="submit"
-                  className="py-2 px-4 my-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  className="py-2 px-4 my-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" 
                 >
                   Configure
                 </button>
-              </div>
+                </div>
             </form>
           </Tabs.Content>
           <Tabs.Content value="directory-sync">
