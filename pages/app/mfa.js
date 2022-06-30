@@ -21,7 +21,7 @@ export default class extends React.Component {
     try {
       const state = 'app'
 
-      let email = protocol === 'magic-link' ? e.target.magiclink.value : "" 
+      let email = protocol === 'magic-link' ? e.target.magiclink.value : ''
 
       var res = await fetch(`/api/${protocol}`, {
         method: 'POST',
@@ -37,12 +37,12 @@ export default class extends React.Component {
         throw new Error(data.message)
       }
 
-     if(protocol == 'magic-link')this.setState({
-        success: true,
-        message: 'We just sent a magic link to your email.',
-        protocol: protocol,
-      })
-    
+      if (protocol == 'magic-link')
+        this.setState({
+          success: true,
+          message: 'We just sent a magic link to your email.',
+          protocol: protocol,
+        })
       else {
         window.location.href = data.authorizationURL
       }
