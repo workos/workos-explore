@@ -88,7 +88,7 @@ export default class LoginWithSSO extends React.Component {
                   </div>
                 </div>
               ) : (
-                <p className="text-xs text-center text-gray-500">Organization is enabled for SSO</p>
+                <p className="text-xs text-center text-gray-500">Organization is SSO enabled</p>
               )}
 
               <div>

@@ -26,7 +26,7 @@ export default class LoginWithMFA extends React.Component {
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6">
-              <div className="flex mx-auto my-5 w-3/4 justify-center">
+              <div className="flex mx-auto mb-5 w-3/4 justify-center">
                 <input
                   className="text-center appearance-none block w-full px-1 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   name="field-1"
