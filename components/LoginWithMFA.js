@@ -43,15 +43,12 @@ export default class LoginWithMFA extends React.Component {
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6">
-              <div>
-                <Label.Root htmlFor="email" className="block text-sm font-medium text-gray-700">
-                 Enter Code
-                </Label.Root>
-                <input name="field-1" onChange={this.handleTextChange} />
-                <input name="field-2" ref={c => this.nextComponent=c} onChange={this.handleTextChange}  />
-                <input name="field-3" ref={c => this.nextComponent=c} onChange={this.handleTextChange}  />
-                <input name="field-4" ref={c => this.nextComponent=c} onChange={this.handleTextChange}  />
-                </div>
+                <div className="flex mx-auto my-5 w-3/4 justify-center">
+                    <input className="text-center appearance-none block w-full px-1 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" name="field-1" onChange={this.handleTextChange} />
+                    <input className="text-center ml-1 appearance-none block w-full px-1 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" name="field-2" ref={c => this.nextComponent=c} onChange={this.handleTextChange}  />
+                    <input className="text-center ml-1 appearance-none block w-full px-1 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" name="field-3" ref={c => this.nextComponent=c} onChange={this.handleTextChange}  />
+                    <input className="text-center ml-1 mr-3 appearance-none block w-full px-1 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" name="field-4" ref={c => this.nextComponent=c} onChange={this.handleTextChange}  />
+                    </div>
                 <a href="/app">
               <div
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
