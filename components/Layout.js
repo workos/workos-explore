@@ -89,7 +89,7 @@ export default function Layout(props) {
               </button>
               {/* Profile dropdown */}
               <DropdownMenu.Root>
-                <DropdownMenu.Trigger className="bg-white rounded-full flex text-sm">
+                <DropdownMenu.Trigger className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 bg-white rounded-full flex text-sm">
                   <Avatar.Root>
                     <Avatar.Image className="h-8 w-8 rounded-full" alt="" src={user.imageUrl} />
                   </Avatar.Root>
@@ -127,7 +127,6 @@ export default function Layout(props) {
           </NavigationMenu.Root>
         </div>
       </header>
-
       {props.children}
     </div>
   )

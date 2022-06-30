@@ -10,7 +10,7 @@ export default async (req, res) => {
     const authorizationURL = workos.sso.getAuthorizationURL({
       state,
       clientID,
-      organization: 'org_01G2AMPPHC9712JSRAXKY3Z0K7',
+      connection: 'conn_01G6488S3BXBFZ62SGYG12X7EC',
       redirectURI: `${baseURL}/api/callback`,
     })
 

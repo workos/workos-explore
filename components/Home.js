@@ -5,6 +5,8 @@ import {
   ThumbUpIcon,
   UserIcon,
 } from '@heroicons/react/solid'
+import * as Toast from '@radix-ui/react-toast';
+import * as React from 'react';
 
 const user = {
   name: 'Whitney Francis',
@@ -92,8 +94,14 @@ function classNames(...classes) {
 }
 
 export default function Home() {
+  const [open, setOpen] = React.useState(false);
+  const eventDateRef = React.useRef(new Date());
+  const timerRef = React.useRef(0);
   return (
     <main className="py-10">
+      <Toast.Provider>
+
+      <Toast.Viewport />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
         <div className="flex items-center space-x-5">
           <div className="flex-shrink-0">
@@ -127,6 +135,14 @@ export default function Home() {
           <button
             type="button"
             className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
+            onClick={() => {
+              setOpen(false);
+              console.log('clicked')
+              window.clearTimeout(timerRef.current);
+              timerRef.current = window.setTimeout(() => {
+                setOpen(true);
+              }, 100);
+            }}
           >
             Advance to offer
           </button>
@@ -367,6 +383,18 @@ export default function Home() {
           </div>
         </section>
       </div>
+      <Toast.Root open={open} onOpenChange={setOpen} className='bg-white p-5 rounded-md fixed shadow-xl right-8 bottom-8 w-1/3 justify-between z-10 flex'>
+        <div >
+          <Toast.Title className="text-xl">
+            Candidate Advanced
+          </Toast.Title>
+          <Toast.Description className="text-sm">Offer email will be sent automatically.</Toast.Description>
+        </div>
+        <Toast.Close className="bg-red-200 p-3 text-sm basis-1/4 rounded-2xl outline-1 outline-red-700">
+          Close
+        </Toast.Close>
+      </Toast.Root>
+      </Toast.Provider>
     </main>
   )
 }

@@ -66,7 +66,6 @@ export default function Settings(props) {
               className={status == 'dsync' ? "bg-white hover:bg-white h-full w-full px-4 py-3" : "hover:bg-white h-full w-full px-4 py-3"}
               onClick={() => setStatus('dsync')}
             >
-             
               <h2>Configure Directory Sync</h2>
             </Tabs.Trigger>
           </Tabs.List>
