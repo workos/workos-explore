@@ -30,7 +30,7 @@ export default class extends React.Component {
 </svg>`,
       },
       {
-        title: 'Single Sign-On',
+        title: 'Sign-On',
         description:
           'SSO enables authentication via an organization’s Identity Provider (IdP), such as Google Workspace or Okta.',
         url: '/app/sso',
