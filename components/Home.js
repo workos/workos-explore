@@ -7,6 +7,7 @@ import {
 } from '@heroicons/react/solid'
 import * as Toast from '@radix-ui/react-toast';
 import * as React from 'react';
+import * as Collapsible from '@radix-ui/react-collapsible';
 
 const user = {
   name: 'Whitney Francis',
@@ -25,20 +26,12 @@ const eventTypes = {
 }
 const timeline = [
   {
-    id: 1,
-    type: eventTypes.applied,
-    content: 'Applied to',
-    target: 'Front End Developer',
-    date: 'Sep 20',
-    datetime: '2020-09-20',
-  },
-  {
-    id: 2,
+    id: 4,
     type: eventTypes.advanced,
-    content: 'Advanced to phone screening by',
+    content: 'Advanced to interview by',
     target: 'Bethany Blake',
-    date: 'Sep 22',
-    datetime: '2020-09-22',
+    date: 'Sep 30',
+    datetime: '2021-09-30',
   },
   {
     id: 3,
@@ -46,24 +39,25 @@ const timeline = [
     content: 'Completed phone screening with',
     target: 'Martha Gardner',
     date: 'Sep 28',
-    datetime: '2020-09-28',
+    datetime: '2021-09-28',
   },
   {
-    id: 4,
+    id: 2,
     type: eventTypes.advanced,
-    content: 'Advanced to interview by',
+    content: 'Advanced to phone screening by',
     target: 'Bethany Blake',
-    date: 'Sep 30',
-    datetime: '2020-09-30',
+    date: 'Sep 22',
+    datetime: '2021-09-22',
   },
   {
-    id: 5,
-    type: eventTypes.completed,
-    content: 'Completed interview with',
-    target: 'Katherine Snyder',
-    date: 'Oct 4',
-    datetime: '2020-10-04',
+    id: 1,
+    type: eventTypes.applied,
+    content: 'Applied to',
+    target: 'Front End Developer',
+    date: 'Sep 20',
+    datetime: '2021-09-20',
   },
+ 
 ]
 const comments = [
   {
@@ -95,7 +89,7 @@ function classNames(...classes) {
 
 export default function Home() {
   const [open, setOpen] = React.useState(false);
-  const eventDateRef = React.useRef(new Date());
+  const [collapsibleOpen, setCollapseOpen] = React.useState(false);;
   const timerRef = React.useRef(0);
   return (
     <main className="py-10">
@@ -333,43 +327,79 @@ export default function Home() {
             {/* Activity Feed */}
             <div className="mt-6 flow-root">
               <ul className="-mb-8">
-                {timeline.map((item, itemIdx) => (
-                  <li key={item.id}>
-                    <div className="relative pb-8">
-                      {itemIdx !== timeline.length - 1 ? (
+                <li key="5">
+                  <div className="relative pb-8">
+                    <div className="relative flex space-x-3">
+                      <div>
                         <span
-                          className="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
-                          aria-hidden="true"
-                        />
-                      ) : null}
-                      <div className="relative flex space-x-3">
+                          className='h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white bg-blue-500'
+                        >
+                          <ThumbUpIcon className="w-5 h-5 text-white" aria-hidden="true" />
+                        </span>
+                      </div>
+                      <div className="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
                         <div>
-                          <span
-                            className={classNames(
-                              item.type.bgColorClass,
-                              'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white',
-                            )}
-                          >
-                            <item.type.icon className="w-5 h-5 text-white" aria-hidden="true" />
-                          </span>
+                          <p className="text-sm text-gray-500">
+                            "Completed interview with"{' '}
+                            <a href="#" className="font-medium text-gray-900">
+                            Katherine Snyder
+                            </a>
+                          </p>
                         </div>
-                        <div className="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
-                          <div>
-                            <p className="text-sm text-gray-500">
-                              {item.content}{' '}
-                              <a href="#" className="font-medium text-gray-900">
-                                {item.target}
-                              </a>
-                            </p>
-                          </div>
-                          <div className="text-right text-sm whitespace-nowrap text-gray-500">
-                            <time dateTime={item.datetime}>{item.date}</time>
-                          </div>
+                        <div className="text-right text-sm whitespace-nowrap text-gray-500">
+                          <time dateTime="2021-10-04">October 4</time>
                         </div>
                       </div>
                     </div>
-                  </li>
-                ))}
+                  </div>
+                </li>
+                <Collapsible.Root>
+                      <Collapsible.Trigger 
+                        className='mb-8 text-sm font-medium text-gray-500'
+                        onClick={setCollapseOpen}
+                      >
+                          {collapsibleOpen ? "Hide" : "Show"} Older Events
+                      </Collapsible.Trigger>
+                      <Collapsible.Content>
+                      {timeline.map((item, itemIdx) => (
+                        <li key={item.id}>
+                          <div className="relative pb-8">
+                            {itemIdx !== timeline.length - 1 ? (
+                              <span
+                                className="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
+                                aria-hidden="true"
+                              />
+                            ) : null}
+                            <div className="relative flex space-x-3">
+                              <div>
+                                <span
+                                  className={classNames(
+                                    item.type.bgColorClass,
+                                    'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white',
+                                  )}
+                                >
+                                  <item.type.icon className="w-5 h-5 text-white" aria-hidden="true" />
+                                </span>
+                              </div>
+                              <div className="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
+                                <div>
+                                  <p className="text-sm text-gray-500">
+                                    {item.content}{' '}
+                                    <a href="#" className="font-medium text-gray-900">
+                                      {item.target}
+                                    </a>
+                                  </p>
+                                </div>
+                                <div className="text-right text-sm whitespace-nowrap text-gray-500">
+                                  <time dateTime={item.datetime}>{item.date}</time>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                      </Collapsible.Content>
+                </Collapsible.Root>
               </ul>
             </div>
             <div className="mt-6 flex flex-col justify-stretch">
