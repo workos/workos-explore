@@ -87,7 +87,7 @@ export default class LoginWithSSO extends React.Component {
                   </div>
                 </div>
               ) : (
-               <div></div>
+                <div></div>
               )}
 
               <div>
