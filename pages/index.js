@@ -63,7 +63,10 @@ export default class extends React.Component {
                   href={section.url}
                   className={`col-span-1 flex flex-row py-20 px-20 bg-gray-50 transition text-gray-400 hover:text-indigo-200 hover:bg-indigo-500`}
                 >
-                  <div className="max-h-12 w-20" dangerouslySetInnerHTML={{ __html: section.icon }} />
+                  <div
+                    className="max-h-12 w-20"
+                    dangerouslySetInnerHTML={{ __html: section.icon }}
+                  />
                   <div className="text-2xl mt-3">{section.title}</div>
                 </a>
               ))}

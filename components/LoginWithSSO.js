@@ -93,7 +93,7 @@ export default class LoginWithSSO extends React.Component {
 
               <div>
                 {this.state.showPasswordInput ? (
-                  <a {...(this.state.allowPasswordLogin ? { href: '/app/mfa' } : null)}>
+                  <a {...(this.state.allowPasswordLogin ? { href: '/app' } : null)}>
                     <div className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                       <LockClosedIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
                       Continue
@@ -159,7 +159,7 @@ export default class LoginWithSSO extends React.Component {
                 continue with Magic Link
               </Dialog.Trigger>
               <Dialog.Overlay className="bg-black bg-opacity-75 fixed top-0 right-0 bottom-0 left-0 grid h-screen place-items-center">
-                <Dialog.Content className="bg-white p-8 rounded-md absolute top-1/4 w-96">
+                <Dialog.Content className="bg-white p-10 rounded-md absolute top-1/4 w-2/6">
                   <Dialog.Title>
                     <div className="mt-6 text-center text-2xl font-extrabold text-gray-900 mb-4">
                       Continue with Magic Link
@@ -171,7 +171,7 @@ export default class LoginWithSSO extends React.Component {
                     ''
                   )}
                   <form onSubmit={this.props.onSubmit.bind(this)} className="space-y-6">
-                    <div>
+                    <div className="mt-10">
                       <Label.Root
                         htmlFor="magiclink"
                         className="block text-left text-sm font-medium text-gray-700 mb-1"
