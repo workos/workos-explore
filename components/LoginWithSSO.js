@@ -3,8 +3,7 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 import Alert from './Alert'
 import * as Label from '@radix-ui/react-label'
 import * as Separator from '@radix-ui/react-separator'
-import * as Dialog from '@radix-ui/react-dialog'
-import { MailIcon } from '@heroicons/react/solid'
+import Link from 'next/link'
 
 export default class LoginWithSSO extends React.Component {
   constructor(props) {
@@ -152,59 +151,14 @@ export default class LoginWithSSO extends React.Component {
               </button>
             </form>
           </div>
-          <div className="mt-4 text-center text-sm text-gray-600">
+          <p className="mt-4 text-center text-sm text-gray-600">
             Or{' '}
-            <Dialog.Root>
-              <Dialog.Trigger className="font-medium text-blue-600 hover:text-blue-500">
+            <Link href="/app/login">
+              <a className="font-medium text-blue-600 hover:text-blue-500">
                 continue with Magic Link
-              </Dialog.Trigger>
-              <Dialog.Overlay className="bg-black bg-opacity-75 fixed top-0 right-0 bottom-0 left-0 grid h-screen place-items-center">
-                <Dialog.Content className="bg-white p-10 rounded-md absolute top-1/4 w-2/6">
-                  <Dialog.Title>
-                    <div className="mt-6 text-center text-2xl font-extrabold text-gray-900 mb-4">
-                      Continue with Magic Link
-                    </div>
-                  </Dialog.Title>
-                  {this.props.protocol == 'magic-link' ? (
-                    <Alert success={this.props.success} message={this.props.message} />
-                  ) : (
-                    ''
-                  )}
-                  <form onSubmit={this.props.onSubmit.bind(this)} className="space-y-6">
-                    <div className="mt-10">
-                      <Label.Root
-                        htmlFor="magiclink"
-                        className="block text-left text-sm font-medium text-gray-700 mb-1"
-                      >
-                        Email Address
-                      </Label.Root>
-                      <div className="mt-1">
-                        <input
-                          id="magiclink"
-                          name="email"
-                          type="email"
-                          autoComplete="email"
-                          placeholder="james@bond.com"
-                          required
-                          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <button
-                        type="submit"
-                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                      >
-                        <MailIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
-                        Send Magic Link
-                      </button>
-                    </div>
-                  </form>
-                </Dialog.Content>
-              </Dialog.Overlay>
-            </Dialog.Root>
-          </div>
+              </a>
+            </Link>
+          </p>
         </div>
       </div>
     )
