@@ -59,7 +59,7 @@ export default class LoginWithSSO extends React.Component {
                     name="email"
                     type="text"
                     placeholder="Enter email address"
-                    defaultValue="sheldon@foo-corp.com"
+                    defaultValue="demo@foo-corp.com"
                     onChange={this.handleEmailChange}
                     required
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
@@ -87,7 +87,7 @@ export default class LoginWithSSO extends React.Component {
                   </div>
                 </div>
               ) : (
-                <p className="text-xs text-center text-gray-500">Organization is SSO enabled</p>
+               <div></div>
               )}
 
               <div>
