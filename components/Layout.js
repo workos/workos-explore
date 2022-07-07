@@ -88,7 +88,7 @@ export default function Layout(props) {
                 <DropdownMenu.Trigger className="bg-white rounded-full flex text-sm">
                   <Avatar.Root>
                     <Avatar.Image
-                      className="h-8 w-8 rounded-full pointer-cursor"
+                      className="h-8 w-8 rounded-full"
                       alt=""
                       src={user.imageUrl}
                     />
