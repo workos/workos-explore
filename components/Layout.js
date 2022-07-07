@@ -18,11 +18,6 @@ const navigation = [
   { name: 'Company', href: '#company' },
 ]
 
-const subNavigation = [
-  { name: 'Configuration', href: '#' },
-  { name: 'Notifications', href: '#' },
-]
-
 const navigationItems = navigation.map((navItem) => {
   return (
     <NavigationMenu.Link
@@ -37,12 +32,12 @@ const navigationItems = navigation.map((navItem) => {
 export default function Layout(props) {
   const userNavigation = [
     { name: 'Your Profile', href: '#' },
-    { name: 'Settings', href: "#" },
+    { name: 'Settings', href: '#' },
     { name: 'Logout', href: '/app/login' },
   ]
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 ">
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
           <NavigationMenu.Root className="flex justify-between h-16">
@@ -92,7 +87,11 @@ export default function Layout(props) {
               <DropdownMenu.Root>
                 <DropdownMenu.Trigger className="bg-white rounded-full flex text-sm">
                   <Avatar.Root>
-                    <Avatar.Image className="h-8 w-8 rounded-full" alt="" src={user.imageUrl} />
+                    <Avatar.Image
+                      className="h-8 w-8 rounded-full pointer-cursor"
+                      alt=""
+                      src={user.imageUrl}
+                    />
                   </Avatar.Root>
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Content className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
