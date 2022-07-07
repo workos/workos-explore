@@ -37,6 +37,7 @@ const navigationItems = navigation.map((navItem) => {
 export default function Layout(props) {
   const userNavigation = [
     { name: 'Your Profile', href: '#' },
+    { name: 'Settings', href: "#" },
     { name: 'Logout', href: '/app/login' },
   ]
 
@@ -66,13 +67,13 @@ export default function Layout(props) {
                   Search
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
                     <SearchIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                   </div>
                   <input
                     id="search"
                     name="search"
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white shadow-sm placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-600 focus:border-blue-600 sm:text-sm"
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white shadow-sm placeholder-gray-500 sm:text-sm"
                     placeholder="Search"
                     type="search"
                   />
@@ -82,19 +83,19 @@ export default function Layout(props) {
             <NavigationMenu.Sub className="hidden lg:ml-4 lg:flex lg:items-center">
               <button
                 type="button"
-                className="mx-3 flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="mx-3 flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none"
               >
                 <span className="sr-only">View notifications</span>
                 <BellIcon className="h-6 w-6" aria-hidden="true" />
               </button>
               {/* Profile dropdown */}
               <DropdownMenu.Root>
-                <DropdownMenu.Trigger className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 bg-white rounded-full flex text-sm">
+                <DropdownMenu.Trigger className="bg-white rounded-full flex text-sm">
                   <Avatar.Root>
                     <Avatar.Image className="h-8 w-8 rounded-full" alt="" src={user.imageUrl} />
                   </Avatar.Root>
                 </DropdownMenu.Trigger>
-                <DropdownMenu.Content className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <DropdownMenu.Content className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
                   <DropdownMenu.Root>
                     {userNavigation.map((item) => (
                       <DropdownMenu.Item className="block px-4 py-2 text-sm text-gray-700">
@@ -103,23 +104,6 @@ export default function Layout(props) {
                         </Link>
                       </DropdownMenu.Item>
                     ))}
-                    <DropdownMenu.TriggerItem className="block px-4 py-2 text-sm text-gray-700">
-                      Settings
-                    </DropdownMenu.TriggerItem>
-                    <DropdownMenu.Content className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      {subNavigation.map((item) => (
-                        <DropdownMenu.Item className="block px-4 py-2 text-sm text-gray-700">
-                          <Link
-                            key={item.name}
-                            href={item.href}
-                            className="block px-4 py-2 text-sm text-gray-700"
-                          >
-                            <a className="block px-4 py-2 text-sm text-gray-700">{item.name}</a>
-                          </Link>
-                        </DropdownMenu.Item>
-                      ))}
-                      <DropdownMenu.Arrow />
-                    </DropdownMenu.Content>
                   </DropdownMenu.Root>
                 </DropdownMenu.Content>
               </DropdownMenu.Root>
