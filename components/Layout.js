@@ -85,13 +85,9 @@ export default function Layout(props) {
               </button>
               {/* Profile dropdown */}
               <DropdownMenu.Root>
-                <DropdownMenu.Trigger className="bg-white rounded-full flex text-sm">
+                <DropdownMenu.Trigger className="bg-white rounded-full flex text-sm focus:outline-none">
                   <Avatar.Root>
-                    <Avatar.Image
-                      className="h-8 w-8 rounded-full"
-                      alt=""
-                      src={user.imageUrl}
-                    />
+                    <Avatar.Image className="h-8 w-8 rounded-full" alt="" src={user.imageUrl} />
                   </Avatar.Root>
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Content className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
