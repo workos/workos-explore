@@ -109,7 +109,7 @@ export default function Settings(props) {
                       Audit Logs
                     </h2>
                     <p className="mt-1 text-sm text-gray-500">
-                      View Audit Log events belonging to your organization.
+                      View Audit Log events for your organization.
                     </p>
                   </div>
                 </div>
