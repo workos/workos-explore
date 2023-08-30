@@ -37,9 +37,9 @@ export default function Layout(props) {
               <>
                 <div className="flex px-2 lg:px-0">
                   <div className="flex-shrink-0 flex items-center">
-                    <Link href="/app">
+                    <Link legacyBehavior href="/app">
                       <a>
-                        <img className="h-8 w-auto" src="/HireOS.svg" alt="HireOS Logo" />
+                        <img className="h-8 w-auto" src="/SuperApp.svg" alt="SuperApp Logo" />
                       </a>
                     </Link>
                   </div>
@@ -120,7 +120,11 @@ export default function Layout(props) {
                           <div className="pt-3 pb-2">
                             <div className="flex items-center justify-between px-4">
                               <div>
-                                <img className="h-8 w-auto" src="/HireOS.svg" alt="HireOS Logo" />
+                                <img
+                                  className="h-8 w-auto"
+                                  src="/SuperApp.svg"
+                                  alt="SuperApp Logo"
+                                />
                               </div>
                               <div className="-mr-2">
                                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
@@ -165,7 +169,7 @@ export default function Layout(props) {
                             </div>
                             <div className="mt-3 px-2 space-y-1">
                               {userNavigation.map((item) => (
-                                <Link key={item.name} href={item.href}>
+                                <Link legacyBehavior key={item.name} href={item.href}>
                                   <a className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">
                                     {item.name}
                                   </a>
@@ -214,7 +218,7 @@ export default function Layout(props) {
                             {userNavigation.map((item) => (
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
-                                  <Link href={item.href}>
+                                  <Link legacyBehavior href={item.href}>
                                     <a
                                       className={classNames(
                                         active ? 'bg-gray-100' : '',

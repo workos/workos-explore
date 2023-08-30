@@ -45,8 +45,9 @@ export default class extends React.Component {
     return (
       <main>
         <Head>
-          <title>HireOS | Log in with SSO</title>
+          <title>Super App | Log in with SSO</title>
           <link href="/favicon.png" rel="shortcut icon" />
+          <script src="https://cdn.tailwindcss.com"></script>
         </Head>
 
         <LoginWithSSO
