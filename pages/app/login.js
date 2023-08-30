@@ -49,7 +49,7 @@ export default class extends React.Component {
     return (
       <main>
         <Head>
-          <title>HireOS | Log in with Email</title>
+          <title>Super App | Log in with Email</title>
           <link href="/favicon.png" rel="shortcut icon" />
         </Head>
 

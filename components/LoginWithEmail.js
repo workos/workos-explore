@@ -8,9 +8,9 @@ export default class LoginWithEmail extends React.Component {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <img className="mx-auto h-20 w-auto" src="/favicon.png" alt="HireOS" />
+          <img className="mx-auto h-20 w-auto" src="/favicon.png" alt="SuperApp" />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Log in to HireOS
+            Log in to Super App
           </h2>
         </div>
 

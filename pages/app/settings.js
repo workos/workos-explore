@@ -46,7 +46,7 @@ export default class extends React.Component {
     return (
       <main>
         <Head>
-          <title>HireOS | Admin Settings</title>
+          <title>Super App | Admin Settings</title>
           <link href="/favicon.png" rel="shortcut icon" />
         </Head>
 

@@ -39,7 +39,7 @@ export default function Layout(props) {
                   <div className="flex-shrink-0 flex items-center">
                     <Link href="/app">
                       <a>
-                        <img className="h-8 w-auto" src="/HireOS.svg" alt="HireOS Logo" />
+                        <img className="h-8 w-auto" src="/SuperApp.svg" alt="SuperApp Logo" />
                       </a>
                     </Link>
                   </div>
@@ -120,7 +120,7 @@ export default function Layout(props) {
                           <div className="pt-3 pb-2">
                             <div className="flex items-center justify-between px-4">
                               <div>
-                                <img className="h-8 w-auto" src="/HireOS.svg" alt="HireOS Logo" />
+                                <img className="h-8 w-auto" src="/SuperApp.svg" alt="SuperApp Logo" />
                               </div>
                               <div className="-mr-2">
                                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">

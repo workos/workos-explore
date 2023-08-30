@@ -8,7 +8,7 @@ export default class extends React.Component {
     return (
       <main>
         <Head>
-          <title>HireOS | Home</title>
+          <title>Super App | Home</title>
           <link href="/favicon.png" rel="shortcut icon" />
         </Head>
 
