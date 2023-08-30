@@ -48,7 +48,7 @@ export default class LoginWithSSO extends React.Component {
           </div>
           <p className="mt-4 text-center text-sm text-gray-600">
             Or{' '}
-            <Link href="/app/login">
+            <Link legacyBehavior href="/app/login">
               <a className="font-medium text-blue-600 hover:text-blue-500">
                 continue with Magic Link
               </a>

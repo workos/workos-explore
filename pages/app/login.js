@@ -51,6 +51,7 @@ export default class extends React.Component {
         <Head>
           <title>Super App | Log in with Email</title>
           <link href="/favicon.png" rel="shortcut icon" />
+          <script src="https://cdn.tailwindcss.com"></script>
         </Head>
 
         <LoginWithEmail

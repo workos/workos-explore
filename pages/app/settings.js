@@ -48,6 +48,7 @@ export default class extends React.Component {
         <Head>
           <title>Super App | Admin Settings</title>
           <link href="/favicon.png" rel="shortcut icon" />
+          <script src="https://cdn.tailwindcss.com"></script>
         </Head>
 
         <Layout>

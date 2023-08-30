@@ -37,7 +37,7 @@ export default function Layout(props) {
               <>
                 <div className="flex px-2 lg:px-0">
                   <div className="flex-shrink-0 flex items-center">
-                    <Link href="/app">
+                    <Link legacyBehavior href="/app">
                       <a>
                         <img className="h-8 w-auto" src="/SuperApp.svg" alt="SuperApp Logo" />
                       </a>
@@ -169,7 +169,7 @@ export default function Layout(props) {
                             </div>
                             <div className="mt-3 px-2 space-y-1">
                               {userNavigation.map((item) => (
-                                <Link key={item.name} href={item.href}>
+                                <Link legacyBehavior key={item.name} href={item.href}>
                                   <a className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">
                                     {item.name}
                                   </a>
@@ -218,7 +218,7 @@ export default function Layout(props) {
                             {userNavigation.map((item) => (
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
-                                  <Link href={item.href}>
+                                  <Link legacyBehavior href={item.href}>
                                     <a
                                       className={classNames(
                                         active ? 'bg-gray-100' : '',
