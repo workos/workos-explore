@@ -7,7 +7,7 @@ const createAuditLogEvents = async (organization) => {
   for (const action of ['user.signed_in', 'user.signed_out']) {
     await workos.auditLogs.createEvent(organization.id, {
       action,
-      occurred_at: new Date(),
+      occurredAt: new Date(),
       actor: {
         type: 'user',
         name: 'Jon Smith',
@@ -21,7 +21,7 @@ const createAuditLogEvents = async (organization) => {
       ],
       context: {
         location: '1.1.1.1',
-        user_agent:
+        userAgent:
           'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
       },
     })
