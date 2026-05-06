@@ -147,6 +147,19 @@ export default class extends React.Component {
           <div className="mt-8 md:mt-0 md:order-1">
             <p className="text-center text-base text-gray-400">
               &copy; {new Date().getFullYear()} WorkOS, Inc.
+              {process.env.NEXT_PUBLIC_COMMIT_SHA && (
+                <>
+                  {' · '}
+                  <a
+                    href={`https://github.com/workos/workos-explore/commit/${process.env.NEXT_PUBLIC_COMMIT_SHA}`}
+                    className="font-mono text-sm hover:text-gray-500"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {process.env.NEXT_PUBLIC_COMMIT_SHA.slice(0, 7)}
+                  </a>
+                </>
+              )}
             </p>
           </div>
         </div>
