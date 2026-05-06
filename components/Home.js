@@ -1,10 +1,10 @@
 import {
   CheckIcon,
+  HandThumbUpIcon,
   PaperClipIcon,
   QuestionMarkCircleIcon,
-  ThumbUpIcon,
   UserIcon,
-} from '@heroicons/react/solid'
+} from '@heroicons/react/24/solid'
 
 const user = {
   name: 'Whitney Francis',
@@ -18,7 +18,7 @@ const attachments = [
 ]
 const eventTypes = {
   applied: { icon: UserIcon, bgColorClass: 'bg-gray-400' },
-  advanced: { icon: ThumbUpIcon, bgColorClass: 'bg-blue-500' },
+  advanced: { icon: HandThumbUpIcon, bgColorClass: 'bg-blue-500' },
   completed: { icon: CheckIcon, bgColorClass: 'bg-green-500' },
 }
 const timeline = [

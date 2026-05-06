@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { LockClosedIcon } from '@heroicons/react/solid'
+import { LockClosedIcon } from '@heroicons/react/24/solid'
 import Alert from './Alert'
 
 export default class LoginWithSSO extends React.Component {
