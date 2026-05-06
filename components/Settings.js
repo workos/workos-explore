@@ -1,7 +1,7 @@
-import { CogIcon, UserCircleIcon } from '@heroicons/react/outline'
+import { Cog6ToothIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 
 const subNavigation = [
-  { name: 'Admin Settings', href: '#', icon: CogIcon, current: true },
+  { name: 'Admin Settings', href: '#', icon: Cog6ToothIcon, current: true },
   { name: 'Your Profile', href: '#', icon: UserCircleIcon, current: false },
 ]
 

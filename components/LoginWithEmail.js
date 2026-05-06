@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { MailIcon } from '@heroicons/react/solid'
+import { EnvelopeIcon } from '@heroicons/react/24/solid'
 import Alert from './Alert'
 
 export default class LoginWithEmail extends React.Component {
@@ -41,7 +41,7 @@ export default class LoginWithEmail extends React.Component {
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
-                  <MailIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+                  <EnvelopeIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
                   Send Magic Link
                 </button>
               </div>

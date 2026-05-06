@@ -1,5 +1,5 @@
 import React from 'react'
-import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/solid'
+import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/solid'
 
 export default class Alert extends React.Component {
   render() {
