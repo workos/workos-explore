@@ -120,7 +120,7 @@ export default class extends React.Component {
       },
       {
         name: 'GitHub',
-        href: 'https://github.com/workos-inc',
+        href: 'https://github.com/workos/workos-explore',
         icon: (props) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path
