@@ -42,7 +42,7 @@ export default function Settings(props) {
 
         <div className="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
           <section aria-labelledby="payment-details-heading">
-            <form onSubmit={props.onSubmit.bind(this, 'sso')}>
+            <form onSubmit={(e) => props.onSubmit('sso', e)}>
               <div className="shadow sm:rounded-md sm:overflow-hidden">
                 <div className="bg-white py-6 px-4 sm:p-6">
                   <div>
@@ -70,7 +70,7 @@ export default function Settings(props) {
           </section>
 
           <section aria-labelledby="payment-details-heading">
-            <form onSubmit={props.onSubmit.bind(this, 'dsync')}>
+            <form onSubmit={(e) => props.onSubmit('dsync', e)}>
               <div className="shadow sm:rounded-md sm:overflow-hidden">
                 <div className="bg-white py-6 px-4 sm:p-6">
                   <div>
@@ -98,7 +98,7 @@ export default function Settings(props) {
           </section>
 
           <section aria-labelledby="payment-details-heading">
-            <form onSubmit={props.onSubmit.bind(this, 'audit_logs')}>
+            <form onSubmit={(e) => props.onSubmit('audit_logs', e)}>
               <div className="shadow sm:rounded-md sm:overflow-hidden">
                 <div className="bg-white py-6 px-4 sm:p-6">
                   <div>
@@ -126,7 +126,7 @@ export default function Settings(props) {
           </section>
 
           <section aria-labelledby="payment-details-heading">
-            <form onSubmit={props.onSubmit.bind(this, 'domain_verification')}>
+            <form onSubmit={(e) => props.onSubmit('domain_verification', e)}>
               <div className="shadow sm:rounded-md sm:overflow-hidden">
                 <div className="bg-white py-6 px-4 sm:p-6">
                   <div>
