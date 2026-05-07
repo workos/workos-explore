@@ -1,15 +1,22 @@
 import { Cog6ToothIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 
+type Intent = 'sso' | 'dsync' | 'audit_logs' | 'domain_verification'
+
+type SettingsProps = {
+  onSubmit: (intent: Intent, e: React.FormEvent<HTMLFormElement>) => void | Promise<void>
+  success: boolean | null
+  message: string | null
+}
+
 const subNavigation = [
   { name: 'Admin Settings', href: '#', icon: Cog6ToothIcon, current: true },
   { name: 'Your Profile', href: '#', icon: UserCircleIcon, current: false },
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+const classNames = (...classes: (string | false | null | undefined)[]) =>
+  classes.filter(Boolean).join(' ')
 
-export default function Settings(props) {
+export default function Settings(props: SettingsProps) {
   return (
     <main className="max-w-7xl mx-auto pb-10 lg:py-12 lg:px-8">
       <div className="lg:grid lg:grid-cols-12 lg:gap-x-5">

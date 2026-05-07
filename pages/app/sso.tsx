@@ -1,9 +1,14 @@
 import React from 'react'
 import Head from 'next/head'
-import LoginWithEmail from '../../components/LoginWithEmail'
+import LoginWithSSO from '../../components/LoginWithSSO'
 
-export default class extends React.Component {
-  constructor(props) {
+type State = {
+  success: boolean | null
+  message: string | null
+}
+
+export default class extends React.Component<{}, State> {
+  constructor(props: {}) {
     super(props)
 
     this.state = {
@@ -12,16 +17,15 @@ export default class extends React.Component {
     }
   }
 
-  async onSubmit(e) {
+  onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     try {
-      const email = e.target.email.value
       const state = 'app'
 
-      const res = await fetch('/api/magic-link', {
+      const res = await fetch('/api/sso', {
         method: 'POST',
-        body: JSON.stringify({ email, state }),
+        body: JSON.stringify({ state }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -33,28 +37,25 @@ export default class extends React.Component {
         throw new Error(data.message)
       }
 
-      this.setState({
-        success: true,
-        message: 'We just sent a magic link to your email.',
-      })
-    } catch (e) {
+      window.location.href = data.authorizationURL
+    } catch (err) {
       this.setState({
         success: false,
-        message: e.message,
+        message: err instanceof Error ? err.message : String(err),
       })
     }
   }
 
-  render() {
+  override render() {
     return (
       <main>
         <Head>
-          <title>Super App | Log in with Email</title>
+          <title>Super App | Log in with SSO</title>
           <link href="/favicon.png" rel="shortcut icon" />
         </Head>
 
-        <LoginWithEmail
-          onSubmit={this.onSubmit.bind(this)}
+        <LoginWithSSO
+          onSubmit={this.onSubmit}
           success={this.state.success}
           message={this.state.message}
         />

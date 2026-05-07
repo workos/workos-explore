@@ -4,7 +4,7 @@ import Home from '../../components/Home'
 import Layout from '../../components/Layout'
 
 export default class extends React.Component {
-  render() {
+  override render() {
     return (
       <main>
         <Head>

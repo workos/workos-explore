@@ -87,9 +87,8 @@ const comments = [
   },
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+const classNames = (...classes: (string | false | null | undefined)[]) =>
+  classes.filter(Boolean).join(' ')
 
 export default function Home() {
   return (
