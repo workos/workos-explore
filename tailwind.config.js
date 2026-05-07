@@ -10,7 +10,6 @@ module.exports = {
         sky: colors.sky,
         teal: colors.teal,
         cyan: colors.cyan,
-        rose: colors.rose,
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],

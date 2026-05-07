@@ -193,7 +193,7 @@ export default function Layout(props) {
 
                   {/* Profile dropdown */}
                   <Menu as="div" className="ml-4 relative flex-shrink-0">
-                    {({ open }) => (
+                    {({ open: menuOpen }) => (
                       <>
                         <div>
                           <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -202,7 +202,7 @@ export default function Layout(props) {
                           </Menu.Button>
                         </div>
                         <Transition
-                          show={open}
+                          show={menuOpen}
                           as={Fragment}
                           enter="transition ease-out duration-100"
                           enterFrom="transform opacity-0 scale-95"
