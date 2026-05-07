@@ -1,23 +1,12 @@
-import React from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 import LoginWithEmail from '../../components/LoginWithEmail'
 
-type State = {
-  success: boolean | null
-  message: string | null
-}
+export default function LoginPage() {
+  const [success, setSuccess] = useState<boolean | null>(null)
+  const [message, setMessage] = useState<string | null>(null)
 
-export default class extends React.Component<{}, State> {
-  constructor(props: {}) {
-    super(props)
-
-    this.state = {
-      success: null,
-      message: null,
-    }
-  }
-
-  onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     try {
@@ -38,32 +27,22 @@ export default class extends React.Component<{}, State> {
         throw new Error(data.message)
       }
 
-      this.setState({
-        success: true,
-        message: 'We just sent a magic link to your email.',
-      })
+      setSuccess(true)
+      setMessage('We just sent a magic link to your email.')
     } catch (err) {
-      this.setState({
-        success: false,
-        message: err instanceof Error ? err.message : String(err),
-      })
+      setSuccess(false)
+      setMessage(err instanceof Error ? err.message : String(err))
     }
   }
 
-  override render() {
-    return (
-      <main>
-        <Head>
-          <title>Super App | Log in with Email</title>
-          <link href="/favicon.png" rel="shortcut icon" />
-        </Head>
+  return (
+    <main>
+      <Head>
+        <title>Super App | Log in with Email</title>
+        <link href="/favicon.png" rel="shortcut icon" />
+      </Head>
 
-        <LoginWithEmail
-          onSubmit={this.onSubmit}
-          success={this.state.success}
-          message={this.state.message}
-        />
-      </main>
-    )
-  }
+      <LoginWithEmail onSubmit={onSubmit} success={success} message={message} />
+    </main>
+  )
 }

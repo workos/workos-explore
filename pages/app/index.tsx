@@ -1,21 +1,18 @@
-import React from 'react'
 import Head from 'next/head'
 import Home from '../../components/Home'
 import Layout from '../../components/Layout'
 
-export default class extends React.Component {
-  override render() {
-    return (
-      <main>
-        <Head>
-          <title>Super App | Home</title>
-          <link href="/favicon.png" rel="shortcut icon" />
-        </Head>
+export default function HomePage() {
+  return (
+    <main>
+      <Head>
+        <title>Super App | Home</title>
+        <link href="/favicon.png" rel="shortcut icon" />
+      </Head>
 
-        <Layout>
-          <Home />
-        </Layout>
-      </main>
-    )
-  }
+      <Layout>
+        <Home />
+      </Layout>
+    </main>
+  )
 }
