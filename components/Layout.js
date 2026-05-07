@@ -37,10 +37,8 @@ export default function Layout(props) {
               <>
                 <div className="flex px-2 lg:px-0">
                   <div className="flex-shrink-0 flex items-center">
-                    <Link legacyBehavior href="/app">
-                      <a>
-                        <img className="h-8 w-auto" src="/SuperApp.svg" alt="SuperApp Logo" />
-                      </a>
+                    <Link href="/app">
+                      <img className="h-8 w-auto" src="/SuperApp.svg" alt="SuperApp Logo" />
                     </Link>
                   </div>
                   <nav
@@ -169,10 +167,12 @@ export default function Layout(props) {
                             </div>
                             <div className="mt-3 px-2 space-y-1">
                               {userNavigation.map((item) => (
-                                <Link legacyBehavior key={item.name} href={item.href}>
-                                  <a className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">
-                                    {item.name}
-                                  </a>
+                                <Link
+                                  key={item.name}
+                                  href={item.href}
+                                  className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800"
+                                >
+                                  {item.name}
                                 </Link>
                               ))}
                             </div>
@@ -218,15 +218,14 @@ export default function Layout(props) {
                             {userNavigation.map((item) => (
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
-                                  <Link legacyBehavior href={item.href}>
-                                    <a
-                                      className={classNames(
-                                        active ? 'bg-gray-100' : '',
-                                        'block px-4 py-2 text-sm text-gray-700',
-                                      )}
-                                    >
-                                      {item.name}
-                                    </a>
+                                  <Link
+                                    href={item.href}
+                                    className={classNames(
+                                      active ? 'bg-gray-100' : '',
+                                      'block px-4 py-2 text-sm text-gray-700',
+                                    )}
+                                  >
+                                    {item.name}
                                   </Link>
                                 )}
                               </Menu.Item>
