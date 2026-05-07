@@ -1,4 +1,4 @@
-import WorkOS from '@workos-inc/node'
+import { WorkOS } from '@workos-inc/node'
 import baseURL from '../../lib/baseURL'
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY)
