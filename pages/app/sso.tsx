@@ -1,23 +1,12 @@
-import React from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 import LoginWithSSO from '../../components/LoginWithSSO'
 
-type State = {
-  success: boolean | null
-  message: string | null
-}
+export default function SsoPage() {
+  const [success, setSuccess] = useState<boolean | null>(null)
+  const [message, setMessage] = useState<string | null>(null)
 
-export default class extends React.Component<{}, State> {
-  constructor(props: {}) {
-    super(props)
-
-    this.state = {
-      success: null,
-      message: null,
-    }
-  }
-
-  onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     try {
@@ -39,27 +28,19 @@ export default class extends React.Component<{}, State> {
 
       window.location.href = data.authorizationURL
     } catch (err) {
-      this.setState({
-        success: false,
-        message: err instanceof Error ? err.message : String(err),
-      })
+      setSuccess(false)
+      setMessage(err instanceof Error ? err.message : String(err))
     }
   }
 
-  override render() {
-    return (
-      <main>
-        <Head>
-          <title>Super App | Log in with SSO</title>
-          <link href="/favicon.png" rel="shortcut icon" />
-        </Head>
+  return (
+    <main>
+      <Head>
+        <title>Super App | Log in with SSO</title>
+        <link href="/favicon.png" rel="shortcut icon" />
+      </Head>
 
-        <LoginWithSSO
-          onSubmit={this.onSubmit}
-          success={this.state.success}
-          message={this.state.message}
-        />
-      </main>
-    )
-  }
+      <LoginWithSSO onSubmit={onSubmit} success={success} message={message} />
+    </main>
+  )
 }
