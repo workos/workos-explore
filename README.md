@@ -7,7 +7,7 @@ An example application demonstrating how Magic Link, SSO, and Admin Portal works
 Clone this repo and install dependencies:
 
 ```sh
-git clone https://github.com/workos-inc/workos-explore.git && cd workos-explore && npm install
+git clone https://github.com/workos/workos-explore.git && cd workos-explore && npm install
 ```
 
 ## Configure your environment
