@@ -49,10 +49,8 @@ export default class LoginWithEmail extends React.Component {
           </div>
           <p className="mt-4 text-center text-sm text-gray-600">
             Or{' '}
-            <Link legacyBehavior href="/app/sso">
-              <a className="font-medium text-blue-600 hover:text-blue-500">
-                continue with SAML SSO
-              </a>
+            <Link href="/app/sso" className="font-medium text-blue-600 hover:text-blue-500">
+              continue with SAML SSO
             </Link>
           </p>
         </div>
