@@ -1,9 +1,10 @@
-import { WorkOS } from '@workos-inc/node'
+import { WorkOS, type Organization } from '@workos-inc/node'
+import type { NextApiRequest, NextApiResponse } from 'next'
 import baseURL from '../../lib/baseURL'
 
-const workos = new WorkOS(process.env.WORKOS_API_KEY)
+const workos = new WorkOS(process.env.WORKOS_API_KEY!)
 
-const createAuditLogEvents = async (organization) => {
+const createAuditLogEvents = async (organization: Organization) => {
   for (const action of ['user.signed_in', 'user.signed_out']) {
     await workos.auditLogs.createEvent(organization.id, {
       action,
@@ -28,15 +29,13 @@ const createAuditLogEvents = async (organization) => {
   }
 }
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { intent, state } = req.body
     const name = `demo-${Date.now()}`
-    const domains = [`${name}.com`]
 
     const organization = await workos.organizations.createOrganization({
       name,
-      domains,
     })
 
     if (intent === 'audit_logs') {
@@ -51,6 +50,6 @@ export default async (req, res) => {
 
     res.status(200).json({ link })
   } catch (e) {
-    res.status(400).json({ message: e.message })
+    res.status(400).json({ message: e instanceof Error ? e.message : String(e) })
   }
 }
