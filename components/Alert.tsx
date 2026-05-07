@@ -1,8 +1,13 @@
 import React from 'react'
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/solid'
 
-export default class Alert extends React.Component {
-  render() {
+type AlertProps = {
+  success: boolean | null
+  message: string | null
+}
+
+export default class Alert extends React.Component<AlertProps> {
+  override render() {
     const icon = this.props.success ? (
       <CheckCircleIcon className="h-5 w-5 text-green-400" />
     ) : (

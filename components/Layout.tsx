@@ -1,8 +1,12 @@
-import { Fragment } from 'react'
+import { Fragment, type ReactNode } from 'react'
 import Link from 'next/link'
 import { Menu, Popover, Transition } from '@headlessui/react'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { BellIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+
+type LayoutProps = {
+  children: ReactNode
+}
 
 const user = {
   name: 'Whitney Francis',
@@ -17,11 +21,10 @@ const navigation = [
   { name: 'Company', href: '#' },
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+const classNames = (...classes: (string | false | null | undefined)[]) =>
+  classes.filter(Boolean).join(' ')
 
-export default function Layout(props) {
+export default function Layout(props: LayoutProps) {
   const userNavigation = [
     { name: 'Admin Settings', href: '/app/settings' },
     { name: 'Your Profile', href: '#' },

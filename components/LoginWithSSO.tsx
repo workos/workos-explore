@@ -3,8 +3,14 @@ import Link from 'next/link'
 import { LockClosedIcon } from '@heroicons/react/24/solid'
 import Alert from './Alert'
 
-export default class LoginWithSSO extends React.Component {
-  render() {
+type LoginWithSSOProps = {
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void | Promise<void>
+  success: boolean | null
+  message: string | null
+}
+
+export default class LoginWithSSO extends React.Component<LoginWithSSOProps> {
+  override render() {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -16,9 +22,9 @@ export default class LoginWithSSO extends React.Component {
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <Alert succeeded={this.props.succeeded} message={this.props.message} />
+            <Alert success={this.props.success} message={this.props.message} />
 
-            <form onSubmit={this.props.onSubmit.bind(this)} className="space-y-6">
+            <form onSubmit={this.props.onSubmit} className="space-y-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   Email Address

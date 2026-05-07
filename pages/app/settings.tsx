@@ -3,8 +3,15 @@ import Head from 'next/head'
 import Settings from '../../components/Settings'
 import Layout from '../../components/Layout'
 
-export default class extends React.Component {
-  constructor(props) {
+type Intent = 'sso' | 'dsync' | 'audit_logs' | 'domain_verification'
+
+type State = {
+  success: boolean | null
+  message: string | null
+}
+
+export default class extends React.Component<{}, State> {
+  constructor(props: {}) {
     super(props)
 
     this.state = {
@@ -13,7 +20,7 @@ export default class extends React.Component {
     }
   }
 
-  async onSubmit(intent, e) {
+  onSubmit = async (intent: Intent, e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     try {
@@ -37,12 +44,12 @@ export default class extends React.Component {
     } catch (err) {
       this.setState({
         success: false,
-        message: err.message,
+        message: err instanceof Error ? err.message : String(err),
       })
     }
   }
 
-  render() {
+  override render() {
     return (
       <main>
         <Head>
@@ -52,7 +59,7 @@ export default class extends React.Component {
 
         <Layout>
           <Settings
-            onSubmit={this.onSubmit.bind(this)}
+            onSubmit={this.onSubmit}
             success={this.state.success}
             message={this.state.message}
           />
