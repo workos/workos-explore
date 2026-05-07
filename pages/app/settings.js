@@ -34,10 +34,10 @@ export default class extends React.Component {
       }
 
       window.location.href = data.link
-    } catch (e) {
+    } catch (err) {
       this.setState({
         success: false,
-        message: e.message,
+        message: err.message,
       })
     }
   }
