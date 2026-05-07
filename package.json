@@ -11,6 +11,8 @@
     "format:check": "oxfmt --check"
   },
   "dependencies": {
+    "@datadog/browser-rum": "^7.0.0",
+    "@datadog/browser-rum-nextjs": "^7.0.0",
     "@headlessui/react": "^2.2.10",
     "@heroicons/react": "^2.2.0",
     "@workos-inc/node": "^8.10.0",
