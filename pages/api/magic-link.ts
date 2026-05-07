@@ -1,8 +1,9 @@
 import { WorkOS } from '@workos-inc/node'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-const workos = new WorkOS(process.env.WORKOS_API_KEY)
+const workos = new WorkOS(process.env.WORKOS_API_KEY!)
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { email, state } = req.body
     const session = await workos.passwordless.createSession({
@@ -14,6 +15,6 @@ export default async (req, res) => {
     await workos.passwordless.sendSession(session.id)
     res.status(200).json({ sessionId: session.id })
   } catch (e) {
-    res.status(400).json({ message: e.message })
+    res.status(400).json({ message: e instanceof Error ? e.message : String(e) })
   }
 }
