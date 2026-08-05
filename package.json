@@ -17,7 +17,7 @@
     "@headlessui/react": "^2.2.10",
     "@heroicons/react": "^2.2.0",
     "@workos-inc/node": "^8.10.0",
-    "next": "^15.5.16",
+    "next": "^16.3.0",
     "postcss-import": "^14.0.2",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
@@ -33,7 +33,7 @@
     "autoprefixer": "^10.4.15",
     "oxfmt": "^0.48.0",
     "oxlint": "^1.63.0",
-    "postcss": "^8.5.10",
+    "postcss": "^8.5.23",
     "tailwindcss": "^3.3.3",
     "typescript": "^6.0.3"
   },
