@@ -31,7 +31,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.15",
-    "oxfmt": "^0.48.0",
+    "oxfmt": "^0.79.0",
     "oxlint": "^1.63.0",
     "postcss": "^8.5.10",
     "tailwindcss": "^3.3.3",
