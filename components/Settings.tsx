@@ -1,4 +1,4 @@
-import { Cog6ToothIcon, UserCircleIcon } from '@heroicons/react/24/outline'
+import { Cog6ToothIcon } from '@heroicons/react/24/outline'
 
 type Intent = 'sso' | 'dsync' | 'audit_logs' | 'domain_verification'
 
@@ -8,10 +8,7 @@ type SettingsProps = {
   message: string | null
 }
 
-const subNavigation = [
-  { name: 'Admin Settings', href: '#', icon: Cog6ToothIcon, current: true },
-  { name: 'Your Profile', href: '#', icon: UserCircleIcon, current: false },
-]
+const subNavigation = [{ name: 'Admin Settings', href: '#', icon: Cog6ToothIcon, current: true }]
 
 const classNames = (...classes: (string | false | null | undefined)[]) =>
   classes.filter(Boolean).join(' ')

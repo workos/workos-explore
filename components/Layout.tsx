@@ -27,7 +27,6 @@ const classNames = (...classes: (string | false | null | undefined)[]) =>
 export default function Layout(props: LayoutProps) {
   const userNavigation = [
     { name: 'Admin Settings', href: '/app/settings' },
-    { name: 'Your Profile', href: '#' },
     { name: 'Logout', href: '/app/login' },
   ]
 
